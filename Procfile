@@ -1,2 +1,1 @@
-web:gunicorn auroraonline.wsgi --log-file-
-heroku ps:scale web=1
+web:gunicorn auroraonline.wsgi 

@@ -1,1 +1,1 @@
-web: python auroraonline/manage.py runserver localhost:$8000
+web: gunicorn auroraonline.wsgi

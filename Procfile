@@ -1,0 +1,1 @@
+web:gunicorn auroraonline.wsgi --log-file-

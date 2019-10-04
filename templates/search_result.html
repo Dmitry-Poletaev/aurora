@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+        <h3>Найденно товаров: {{search_product.count }}</h3>
+         {% if search_product %}
+            {% for product in search_product %}
+           <div class="product_item is_new">
+			    <div class="product_border"></div>
+					<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ product.image.url }}" alt="" style='height: 100px'></div>
+						<div class="product_content">
+							<div class="product_price">
+									Цена: {{ product.price}}.руб
+									</div>
+									<div class="product_name"><div><a href="{{ product.get_absolute_url }}" tabindex="0">{{ product.name }}</a></div></div>
+								</div>
+							</div>
+							{% endfor %}
+                            {% else %}
+            <p>Не найдено товаров по вашему запросу<br>Попробуйте повторить запрос с другой формулировкой</p>
+        {% endif %}
+
+        </div>
+    <div>
+</div>
+{% endblock content %}

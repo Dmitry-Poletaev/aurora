@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="form-group">
+<form  method="post">
+{% csrf_token %}
+<table>
+  {{ form.as_table }}
+</table>
+<button class="btn btn-primary" type="submit">Оформить заказ</button>
+</form>
+</div>
+{% endblock %}

@@ -10,7 +10,7 @@ DELIVERY_CHOICES = (
 class OrderForm(forms.ModelForm):
     name = forms.CharField(label='Имя',max_length=30)
     last_name = forms.CharField(label='Фамилия',max_length=40, required=False)
-    delivery_choice = forms.ChoiceField(label='Способ получения',widget = forms.RadioSelect, choices = DELIVERY_CHOICES)
+    #delivery_choice = forms.ChoiceField(label='Способ получения',widget = forms.RadioSelect, choices = DELIVERY_CHOICES)
     shipping_address = forms.CharField(label='Адрес',required=False)
     phone =  forms.CharField(label='Телефон',max_length=30,required=False)
     email = forms.EmailField(label='E-mail',max_length=40)
@@ -20,5 +20,5 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields  = ('name','last_name', 'delivery_choice','shipping_address',
+        fields  = ('name','last_name','shipping_address',
         'phone','email','comment','captcha')

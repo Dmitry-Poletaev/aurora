@@ -39,6 +39,7 @@ def category_view(request, slug):
 
 
 def product_view(request, slug):
+    categories = Category.objects.all()
     product = Product.objects.get(slug=slug)
-    return render(request,'product.html',{'product':product,})
+    return render(request,'product.html',{'product':product,'categories':categories})
     

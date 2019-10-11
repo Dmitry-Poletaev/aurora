@@ -11,7 +11,7 @@
 <!-- Home -->
 
 	<div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/shop_background.jpg' %}"></div>
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src=""></div>
 		<div class="home_overlay"></div>
 		<div class="home_content d-flex flex-column align-items-center justify-content-center">
 			<h2 class="home_title">{{ category.name }}</h2>
@@ -87,7 +87,7 @@
 								<div class="product_content">
 									<div class="product_price">
 									{% if product.discount_price %}
-									Цена:<s>{{ product.price }}</s>
+									Цена:<small><s>{{ product.price }}</s></small>
 									 {{ product.get_sale }}.руб
 									{% else %}
 									Цена: {{ product.price }}.руб

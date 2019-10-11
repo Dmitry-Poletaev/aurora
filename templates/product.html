@@ -39,8 +39,8 @@
 								</div>
 								<div class="product_price">
 								{% if product.discount_price %}
-									Цена:<s>{{ product.price }}</s><br>
-									 {{ product.get_sale }}.руб
+									Цена:<small><s>{{ product.price }}</s></small>
+									<br>{{ product.get_sale }}.руб
 									{% else %}
 									Цена: {{ product.price }}.руб
 									{% endif %}

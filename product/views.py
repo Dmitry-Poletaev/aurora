@@ -43,3 +43,23 @@ def product_view(request, slug):
     product = Product.objects.get(slug=slug)
     return render(request,'product.html',{'product':product,'categories':categories})
     
+
+def catalog(request):
+    categories = Category.objects.all()
+    products = Product.objects.all()
+
+        # Пагинация
+    paginator = Paginator(products,20)
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+    
+    context = {
+    'products':products,
+    'categories': categories
+    }
+    return render(request, 'catalog.html', context)

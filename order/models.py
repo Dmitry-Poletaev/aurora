@@ -4,10 +4,7 @@ from product.models import Product
 
 # Create your models here.
 
-DELIVERY_CHOICE = (
-    ('С', 'Самовывоз'),
-    ('Д', 'Доставка')
-)
+
 
 
 class Order(models.Model):

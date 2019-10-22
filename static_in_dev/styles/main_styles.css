@@ -1195,7 +1195,7 @@ select option
 
 .banner
 {
-	width: auto;
+	width: 100%;
 	padding-top: 68px;
 	padding-bottom: 83px;
 	overflow: hidden;

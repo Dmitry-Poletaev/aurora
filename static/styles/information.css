@@ -1,0 +1,41 @@
+
+.about{
+    text-align: left;
+    border: 1px solid blue;
+}
+
+.service{
+    text-align: center;
+    border: 1px solid blue;
+
+}
+
+#service_header{
+    text-align: center;
+
+}
+
+.politics{
+    border: 1px solid blue;
+
+}
+
+.warranty{
+    border: 1px solid blue;
+}
+
+.credit{
+    border: 1px solid blue;
+}
+
+.contact {
+    border: 1px solid blue;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.contact-map{
+    text-align: center;
+    
+
+}

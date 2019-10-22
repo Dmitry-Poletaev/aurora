@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from django.db.models import Q
-from product.models import Product
+from product.models import Product, Category
 from .forms import SearchForm
 
 # Create your views here.
@@ -17,4 +17,4 @@ def search_view(request):
         keyword =''
    
     
-    return render(request,template, {'search_product':search_product})
+    return render(request,template, {'search_product':search_product,'categories':Category.objects.all()})

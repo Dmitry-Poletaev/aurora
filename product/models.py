@@ -22,7 +22,7 @@ class Category(models.Model):
 
 
     def __str__(self):
-        return self.name.encode('utf-8')
+        return str(self.name)
 
     def get_absolute_url(self):
         return reverse('category_detail', kwargs={'slug': self.slug})
@@ -34,7 +34,7 @@ class Product(models.Model):
 
     id = models.AutoField(primary_key=True)
     name = models.CharField('Название',max_length=120)
-    slug = models.SlugField('URL', max_length=120, unique=True)
+    slug = models.SlugField('URL', max_length=255, unique=True)
     image = models.ImageField('Изображение',upload_to='images/', blank=True)
     description = RichTextField('Описание',blank=True)
     price = models.FloatField('Цена',null=True)
@@ -58,7 +58,7 @@ class Product(models.Model):
         
 
     def __str__(self):
-        return self.name.encode('utf-8')
+        return str(self.name)
 
     def get_absolute_url(self):
         return reverse('product',  args=[self.slug])

@@ -1,59 +1,56 @@
 {% extends "index.html" %}
 
 {% block content %}
-
-<div class="cart_section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1">
-					<div class="cart_container">
-						<div class="cart_title">Shopping Cart</div>
-						<div class="cart_items">
-							<ul class="cart_list">
-                                {% for item in cart %}
-                                     {% with product=item.product %}
-								<li class="cart_item clearfix">
-									<div class="cart_item_image"><img src="images/shopping_cart.jpg" alt=""></div>
-									<div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-										<div class="cart_item_name cart_info_col">
-											<div class="cart_item_title">Товар</div>
-											<div class="cart_item_text">{{ product.name }}</div>
-										</div>
-										<div class="cart_item_quantity cart_info_col">
-											<div class="cart_item_title">Количество</div>
-											<div class="cart_item_text">{{ item.quantity }}</div>
-										</div>
-										<div class="cart_item_price cart_info_col">
-											<div class="cart_item_title">Цена</div>
-											<div class="cart_item_text">{{ item.price }}.руб</div>
-										</div>
-										<div class="cart_item_total cart_info_col">
-											<div class="cart_item_title">Итоговая цена</div>
-											<div class="cart_item_text">{{ item.total_price }}.руб</div>
-										</div>
-									</div>
-								</li>
-                                    {% endwith %}
-                                {% endfor %}
-							</ul>
-						</div>
-						
-						<!-- Order Total -->
-						<div class="order_total">
-							<div class="order_total_content text-md-right">
-								<div class="order_total_title">Итоговый заказ:</div>
-								<div class="order_total_amount">$2000</div>
-							</div>
-						</div>
-
-						<div class="cart_buttons">
-							<button type="button" class="button cart_button_clear">Add to Cart</button>
-							<button type="button" class="button cart_button_checkout">Add to Cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<br>
+  <h3>Ваш заказ:</h3>
+  <br>
+  <table class="cart">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+        <th>Unit price</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+        {% with product=item.product %}
+          <tr>
+            <td>
+              <a href="{{ product.get_absolute_url }}">
+                <img src="{{ product.image.url }}">
+              </a>
+            </td>
+            <td>{{ product.name }}</td>
+            <td>
+              <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                {{ item.update_quantity_form.quantity }}
+                {{ item.update_quantity_form.update }}
+                <input type="submit" value="Update">
+                {% csrf_token %}
+              </form>
+            </td>
+            <td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
+            <td class="num">${{ item.price }}</td>
+            <td class="num">${{ item.total_price }}</td>
+          </tr>
+        {% endwith %}
+      {% endfor %}
+      <tr class="total">
+        <td>Total</td>
+        <td colspan="4"></td>
+        <td class="num">${{ cart.get_total_price }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="text-right">
+    <a href="#" class="button light" id="">Continue shopping</a>
+    <a href="#" class="button">
+      Checkout
+    </a>
+  </p>
 
 {% endblock content %}

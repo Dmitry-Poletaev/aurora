@@ -8,6 +8,9 @@
 {% endblock seo %}
 
 {% block content %}
+
+<!-- Single Product -->
+
 <!-- Single Product -->
 
 	<div class="single_product">
@@ -35,7 +38,8 @@
 						<div class="product_name">{{ product.name }}</div>
 						<div class="product_text"><p>{% autoescape off%}{{ product.description }}{% endautoescape %}</p></div>
 						<div class="order_info d-flex flex-row">
-							<form action="#">
+							<form action="{% url 'cart:cart_add' product.id %}" method="post">
+							{% csrf_token %}
 								<div class="clearfix" style="z-index: 1000;">
 								</div>
 								<div class="product_price">
@@ -53,7 +57,6 @@
 									<div class="add_to_cart">
 										<form action="{% url 'cart:cart_add' product.id %}" method="post">
 										{{ cart_product_form }}
-										{% csrf_token %}
 										<input type="submit" value="Добавить в корзину">
 										</form>
 									</div>
@@ -67,5 +70,6 @@
 			</div>
 		</div>
 	</div>
+
 
 {% endblock content %}

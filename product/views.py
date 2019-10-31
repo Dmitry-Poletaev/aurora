@@ -18,7 +18,6 @@ def main_page(request):
 
 def category_view(request, slug):
     category = Category.objects.get(slug=slug)
-    #products = category.product_set.all()
     products = Product.objects.filter(category=category)
     categories = Category.objects.all()
 

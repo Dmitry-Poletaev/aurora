@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import ListView, DetailView, View
 from django.core.mail import send_mail, BadHeaderError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models.functions import Coalesce
+from cart.forms import CartAddProductForm
 
 
 
@@ -38,10 +39,15 @@ def category_view(request, slug):
     return render(request, 'category.html', context)
 
 
-def product_view(request, slug):
+def product_view(request, id, slug):
     categories = Category.objects.all()
-    product = Product.objects.get(slug=slug)
-    return render(request,'product.html',{'product':product,'categories':categories})
+    #product = Product.objects.get(id=id,slug=slug)
+    product = get_object_or_404(Product,
+                                id=id,
+                                slug=slug)
+    cart_product_form = CartAddProductForm()
+    return render(request,'product.html',{'product':product,'categories':categories,
+                                        'cart_product_form': cart_product_form})
     
 
 def catalog(request):

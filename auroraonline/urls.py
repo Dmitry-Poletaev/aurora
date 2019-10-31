@@ -21,10 +21,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('checkout/',include('order.urls')),
+    path('cart/', include('cart.urls', namespace='cart')),
     path('', include('product.urls')),
     path('', include('search.urls')),
     path('',include('information.urls')),
-    path('cart', include('cart.urls')),
     path('captcha/',include('captcha.urls'))
 ]
 if settings.DEBUG:

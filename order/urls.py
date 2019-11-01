@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import checkout_view,thanks
+from .views import order_create
 
 
 urlpatterns =[
-    path('', checkout_view, name='checkout'),
-    path('thanks/', thanks, name='thanks'),
+    path('', order_create, name='order_create'),
+    
 ]

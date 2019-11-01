@@ -15,7 +15,7 @@ class Order(models.Model):
     last_name = models.CharField('Фамилия',max_length=50)
     phone = models.CharField('Телефон',max_length=50)
     email = models.EmailField("E-mail", max_length=50)
-    comment = models.TextField('Комментарий', max_length=300)
+    #comment = models.TextField('Комментарий', max_length=300)
     created_date = models.DateTimeField('Дата создания',auto_now_add=True)
     updated = models.DateTimeField('Изменено',auto_now=True)
     paid = models.BooleanField('Оплачено',default=False)

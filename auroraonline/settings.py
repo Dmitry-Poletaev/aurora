@@ -142,3 +142,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CART_SESSION_ID = 'cart'
 
+# Настройки почтового сервера
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

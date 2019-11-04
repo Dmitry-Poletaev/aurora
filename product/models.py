@@ -40,9 +40,11 @@ class Product(models.Model):
     price = models.DecimalField('Цена',max_digits=10, decimal_places=2)
     discount_price = models.DecimalField('Цена со скидкой',max_digits=10, decimal_places=2, blank=True, null=True)
     sale = models.IntegerField('Скидка в процентах', blank=True, null=True,default=0)
-    available = models.BooleanField('',default=True)
+    available = models.BooleanField('Есть в наличии',default=True)
     created = models.DateTimeField('Дата создания',auto_now_add=True)
     updated = models.DateTimeField('Дата изменения',auto_now=True)
+    title =  models.CharField('Title',max_length=100,blank=True)
+    description_seo =  models.CharField('Description',max_length=140,blank=True)
 
     class Meta:
         ordering = ('discount_price',)

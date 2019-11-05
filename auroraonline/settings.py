@@ -142,5 +142,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CART_SESSION_ID = 'cart'
 
+
 # Настройки почтового сервера
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'mail.nic.ru'
+EMAIL_HOST_USER = 'd.poletaev@vorteil-technology.ru'
+EMAIL_HOST_PASSWORD = 'Dima12345'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'd.poletaev@vorteil-technology.ru'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

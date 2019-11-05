@@ -12,10 +12,10 @@ class Order(models.Model):
     Модель заказа
     """
     name =  models.CharField('Имя',max_length=50)
-    last_name = models.CharField('Фамилия',max_length=50)
     phone = models.CharField('Телефон',max_length=50)
     email = models.EmailField("E-mail", max_length=50)
-    #comment = models.TextField('Комментарий', max_length=300)
+    shipping_address = models.CharField('Адресс',max_length=250)
+    city = models.CharField('Город',max_length=100)
     created_date = models.DateTimeField('Дата создания',auto_now_add=True)
     updated = models.DateTimeField('Изменено',auto_now=True)
     paid = models.BooleanField('Оплачено',default=False)

@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from .models import Order, OrderItem
 from .forms import OrderForm
+from product.models import Category
 from cart.cart import Cart
 from django.http import HttpResponseRedirect, HttpResponse
 from .tasks import order_created
-
 
 
 
@@ -32,4 +32,4 @@ def order_create(request):
         form = OrderForm()
     return render(request,
                   'checkout.html',
-                  {'cart': cart, 'form': form})
+                  {'cart': cart, 'form': form, 'categories':Category.objects.all()})

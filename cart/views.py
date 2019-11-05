@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect
-from product.models import Product
+from product.models import Product, Category
 from .cart import Cart
 from .forms import CartAddProductForm
 
@@ -32,4 +32,4 @@ def cart_detail(request):
             item['update_quantity_form'] = CartAddProductForm(
                               initial={'quantity': item['quantity'],
                               'update': True})
-    return render(request, 'cart.html', {'cart': cart})
+    return render(request, 'cart.html', {'cart': cart,'categories':Category.objects.all()})

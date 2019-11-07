@@ -1,12 +1,12 @@
 
 .about{
     text-align: left;
-    border: 1px solid blue;
+    margin: 50px;
 }
 
 .service{
     text-align: center;
-    border: 1px solid blue;
+    
 
 }
 
@@ -16,22 +16,21 @@
 }
 
 .politics{
-    border: 1px solid blue;
+    margin:50px;
 
 }
 
 .warranty{
-    border: 1px solid blue;
+    margin: 50px;
 }
 
 .credit{
-    border: 1px solid blue;
+    margin: 50px;
 }
 
 .contact {
-    border: 1px solid blue;
     text-align: center;
-    margin-left: 50px;
+    margin: 50px;
 }
 
 .contact-map{

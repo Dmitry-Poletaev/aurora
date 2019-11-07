@@ -8,7 +8,7 @@
     <ul>
       {% for item in cart %}
         <li>
-          Всего товара: {{ item.quantity }}x {{ item.product.name }}
+          {{ item.quantity }}x {{ item.product.name }}
           <span>{{ item.total_price }}.руб</span>
         </li>
       {% endfor %}

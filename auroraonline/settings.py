@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'information',
     'ckeditor',
     'captcha',
+    'payment',
+    'import_export',
 ]
 
 MIDDLEWARE = [

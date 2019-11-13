@@ -1,5 +1,10 @@
 {% extends "index.html" %}
-
+{% block seo %}
+<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+{% endblock seo %}
 {% block content %}
 {% if  cart.get_total_price > 0  %}
   <br>
@@ -48,7 +53,7 @@
       </tbody>
     </table>
     <p class="text-right">
-      <a href="#" class="button light" id="">Продолжить покупки</a>
+      <a href="{% url 'catalog' %}" class="button light" id="">Продолжить покупки</a>
       <a href="{% url 'order_create' %}" class="button">
         Оформить заказ
       </a>

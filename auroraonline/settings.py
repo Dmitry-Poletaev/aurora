@@ -153,3 +153,8 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'd.poletaev@vorteil-technology.ru'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+#SSL
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True

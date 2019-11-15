@@ -87,7 +87,7 @@ DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'aurora2',
-            'USER': 'postgres',
+            'USER': 'aurora',
             'PASSWORD': '123456',
             'HOST': 'localhost',
             'PORT': '',

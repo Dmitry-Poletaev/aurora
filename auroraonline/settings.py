@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p-u2mek&khdleghb$mzu1#3n(x+sa2xzm_ee%^dn-rws%glg!7'
+SECRET_KEY = 'p-u2mek&khdleghb$mzu1#3n(x+sa2xzm_ee%^dn-rws%glg!78'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -87,7 +87,7 @@ DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'aurora2',
-            'USER': 'aurora',
+            'USER': 'postgres',
             'PASSWORD': '123456',
             'HOST': 'localhost',
             'PORT': '',
@@ -154,7 +154,3 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'd.poletaev@vorteil-technology.ru'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-
-#SSL
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True

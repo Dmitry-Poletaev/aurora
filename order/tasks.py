@@ -10,7 +10,7 @@ def order_created(order_id):
     order = Order.objects.get(id=order_id)
     subject = f'Заказ №{order.id}.'
     message = 'Добрый день, {},\n\nВаш заказ успешно оформлен.\
-                  Номер вашего заказа {}.'.format(name,
+                  Номер вашего заказа {}.'.format(order.name,
                                             order.id)
     mail_sent = send_mail(subject,
                           message,

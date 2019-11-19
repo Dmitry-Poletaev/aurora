@@ -158,5 +158,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # robots.txt
 ROBOTS_SITEMAP_URLS = [
-    'https://www.auroraonline.ru/sitemap.xml',
+    'http://www.auroraonline.ru/sitemap.xml',
 ]
+
+SITE_ID = 1

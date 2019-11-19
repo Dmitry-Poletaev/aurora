@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'product',
     'order',
     'crispy_forms',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'captcha',
     'payment',
     'import_export',
+    'robots'
 ]
 
 MIDDLEWARE = [
@@ -154,3 +156,7 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'd.poletaev@vorteil-technology.ru'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+# robots.txt
+ROBOTS_SITEMAP_URLS = [
+    'https://www.auroraonline.ru/sitemap.xml',
+]

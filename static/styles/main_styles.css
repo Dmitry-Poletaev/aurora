@@ -1195,7 +1195,7 @@ select option
 
 .banner
 {
-	width: auto;
+	width: 100%;
 	padding-top: 68px;
 	padding-bottom: 83px;
 	overflow: hidden;
@@ -1269,6 +1269,8 @@ select option
 	top: -5px;
 	right: -52px;
 	z-index: 0;
+	width: auto;
+	height: 350px;
 }
 
 /*********************************
@@ -2088,10 +2090,12 @@ select option
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	
 }
 .banner_2_item
 {
 	height: 580px;
+	width: 50%;
 }
 .banner_2_content
 {
@@ -2101,11 +2105,13 @@ select option
 {
 	width: 100%;
 	height: 100%;
+	margin-top: 20px;
 }
 .banner_2_image
 {
 	min-width: 100%;
-	width: calc(44.8vw);
+	width: auto;
+	height: 100%;
 	position: absolute;
 	top: 50%;
 	-webkit-transform: translateY(-50%);

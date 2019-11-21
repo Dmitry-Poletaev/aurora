@@ -18,6 +18,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+handler404 = 'information.views.handler404'
+handler500 = 'information.views.handler500'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('robots\.txt', include('robots.urls')),

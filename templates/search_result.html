@@ -10,8 +10,6 @@
 
 						<div class="product_grid">
 							<div class="product_grid_border"></div>
-
-							<!-- Product Item -->
 							{% if search_product %}
                                 {% for product in search_product %}
 							<div class="product_item is_new">
@@ -29,12 +27,15 @@
 									<div class="product_name"><div><a href="{{ product.get_absolute_url }}" tabindex="0">{{ product.name }}</a></div></div>
 								</div>
 							</div>
+							
 							{% endfor %}
                             {% else %}
-                            <p>Не найдено товаров по вашему запросу<br>Попробуйте повторить запрос с другой формулировкой</p>
+                            	<div><p> товаров по вашему запросу<br>Попробуйте повторить запрос с другой формулировкой</p></div>
                             {% endif %}
+						
+						</div> 	
 
 
-						</div>
+						
 
 {% endblock content %}

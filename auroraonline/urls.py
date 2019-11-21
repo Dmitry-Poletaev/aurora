@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 
 handler404 = 'information.views.handler404'
-handler500 = 'information.views.handler500'
+#handler500 = 'information.views.handler500'
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,5 +1,8 @@
 {% extends "index.html" %}
-
+{% load static %}
 {% block content %}
 
+<div class="error_500">
+    <img src="{% static 'images/500.png' %}" alt="" style="height:550px; width:auto">
+</div>
 {% endblock content %}

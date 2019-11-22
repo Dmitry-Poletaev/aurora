@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p-u2mek&khdleghb$mzu1#3n(x+sa2xzm_ee%^dn-rws%glg!78'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -150,7 +150,7 @@ CART_SESSION_ID = 'cart'
 # Настройки почтового сервера
 EMAIL_HOST = 'mail.nic.ru'
 EMAIL_HOST_USER = 'd.poletaev@vorteil-technology.ru'
-EMAIL_HOST_PASSWORD = 'Dima12345'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'd.poletaev@vorteil-technology.ru'

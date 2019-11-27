@@ -41,7 +41,6 @@ def category_view(request, slug):
 
 def product_view(request, id, slug):
     categories = Category.objects.all()
-    #product = Product.objects.get(id=id,slug=slug)
     product = get_object_or_404(Product,
                                 id=id,
                                 slug=slug)

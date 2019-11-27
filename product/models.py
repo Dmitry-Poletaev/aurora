@@ -34,8 +34,7 @@ class Product(models.Model):
                                  on_delete=models.CASCADE,verbose_name='Категория')
     name = models.CharField('Название',max_length=200, db_index=True)
     slug = models.SlugField('URL',max_length=200, db_index=True)
-    image = models.ImageField('Изображение',upload_to='products/%Y/%m/%d',
-                              blank=True)
+    image = models.ImageField('Изображение',upload_to='products/%Y/%m/%d')
     description = RichTextField('Описание',blank=True)
     price = models.DecimalField('Цена',max_digits=10, decimal_places=2)
     discount_price = models.DecimalField('Цена со скидкой',max_digits=10, decimal_places=2, blank=True, null=True)
@@ -47,7 +46,7 @@ class Product(models.Model):
     description_seo =  models.CharField('Description',max_length=140,blank=True)
 
     class Meta:
-        ordering = ('discount_price',)
+        ordering = ['price']
         index_together = (('id', 'slug'),)
         verbose_name='Товар'
         verbose_name_plural='Товары'

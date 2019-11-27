@@ -6,7 +6,7 @@ from .forms import OrderForm
 from product.models import Category
 from cart.cart import Cart
 from django.http import HttpResponseRedirect, HttpResponse
-from .tasks import order_created
+from .tasks import order_created, admin_notification
 
 
 
@@ -25,7 +25,8 @@ def order_create(request):
             # clear the cart
             cart.clear()
             # Запуск асинхронной задачи.
-            order_created.delay(order.id)
+            order_created(order.id)
+            admin_notification(order.id)
             #order_created.delay(order.id)
             return render(request,
                           'thanks.html',

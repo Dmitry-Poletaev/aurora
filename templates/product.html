@@ -27,13 +27,13 @@
 				</div>-->
 
 				<!-- Selected Image -->
-				<div class="col-lg-5 order-lg-2 order-1">
-					<div class="image_selected"><img src="{{ product.image.url }}" alt="" style='height: 490px'></div>
+				<div class="col-lg-4 order-lg-2 order-1">
+					<div class="image_selected"><img src="{{ product.image.url }}" alt="" style='height: 200px; width:auto'></div>
 				</div>
 
 				<!-- Description -->
-				<div class="col-lg-5 order-3">
-					<div class="product_description">
+				<div class="col-lg-8 order-3">
+					<div class="product_description" >
 						<div class="product_category">{{ product.category.name }}</div>
 						<div class="product_name">{{ product.name }}</div>
 						<div class="product_text"><p>{% autoescape off%}{{ product.description }}{% endautoescape %}</p></div>

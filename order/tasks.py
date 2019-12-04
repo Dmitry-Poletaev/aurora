@@ -24,7 +24,7 @@ def admin_notification(order_id):
     """
     order = Order.objects.get(id=order_id)
     subject = f'Заказ №{order.id}.'
-    message = f'{order.name} успешно формил заказ №{order.id}'
+    message = f'{order.name} успешно оформил заказ №{order.id}'
     mail_sent = send_mail(subject,
                           message,
                           'd.poletaev@vorteil-technology.ru',

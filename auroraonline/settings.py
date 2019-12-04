@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'product',
     'order',
     'crispy_forms',
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'import_export',
     'robots'
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -157,7 +160,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # robots.txt
 ROBOTS_SITEMAP_URLS = [
-    'http://www.auroraonline.ru/sitemap.xml',
+    'https://www.auroraonline.ru/sitemap.xml',
 ]
 
-SITE_ID = 1

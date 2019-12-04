@@ -42,8 +42,8 @@ class Product(models.Model):
     available = models.BooleanField('Есть в наличии',default=True)
     created = models.DateTimeField('Дата создания',auto_now_add=True)
     updated = models.DateTimeField('Дата изменения',auto_now=True)
-    title =  models.CharField('Title',max_length=100,blank=True)
-    description_seo =  models.CharField('Description',max_length=140,blank=True)
+    title =  models.CharField('Title',max_length=150,blank=True)
+    description_seo =  models.CharField('Description',max_length=200,blank=True)
 
     class Meta:
         ordering = ['price']

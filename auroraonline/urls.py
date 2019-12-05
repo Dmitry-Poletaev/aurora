@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
+from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 from information.sitemaps import ProductSitemap, CategorySitemap, InformationSitemap
@@ -33,7 +34,7 @@ handler404 = 'information.views.handler404'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap,{'sitemaps': sitemaps}),
-    path('robots\.txt', include('robots.urls')),
+    path('robots\.txt', TemplateView.as_view(template_name='robots.txt',content_type='text/plain')),
     path('checkout/',include('order.urls')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('', include('product.urls')),

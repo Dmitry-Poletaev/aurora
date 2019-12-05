@@ -46,11 +46,10 @@ INSTALLED_APPS = [
     'information',
     'ckeditor',
     'captcha',
-    'import_export',
-    'robots'
+    'import_export'
 ]
 
-SITE_ID = 1
+SITE_ID = 5
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -158,8 +157,4 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'd.poletaev@vorteil-technology.ru'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# robots.txt
-ROBOTS_SITEMAP_URLS = [
-    'https://www.auroraonline.ru/sitemap.xml',
-]
 

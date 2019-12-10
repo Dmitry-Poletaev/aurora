@@ -1,10 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
-from django.http import HttpResponseRedirect, HttpResponse
-from django.views.generic import ListView, DetailView, View
-from django.core.mail import send_mail, BadHeaderError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.db.models.functions import Coalesce
 from cart.forms import CartAddProductForm
 
 
@@ -21,7 +17,7 @@ def category_view(request, slug):
     products = Product.objects.filter(category=category)
     categories = Category.objects.all()
 
-        # Пагинация
+    # Пагинация
     paginator = Paginator(products,20)
     page = request.GET.get('page')
     try:

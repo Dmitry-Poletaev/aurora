@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import View
 from django.db.models import Q
 from product.models import Product, Category
-from .forms import SearchForm
 
 # Create your views here.
 def search_view(request):

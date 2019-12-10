@@ -5,7 +5,6 @@ from .models import Order, OrderItem
 from .forms import OrderForm
 from product.models import Category
 from cart.cart import Cart
-from django.http import HttpResponseRedirect, HttpResponse
 from .tasks import order_created, admin_notification
 
 

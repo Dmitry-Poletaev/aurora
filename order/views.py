@@ -1,11 +1,10 @@
-from django.urls import reverse
-from django.shortcuts import render, redirect
 from django.shortcuts import render
 from .models import Order, OrderItem
 from .forms import OrderForm
 from product.models import Category
 from cart.cart import Cart
 from .tasks import order_created, admin_notification
+
 
 
 

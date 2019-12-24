@@ -1,0 +1,21 @@
+
+User-agent: * 
+Disallow: /cart/ 
+Disallow: /checkout/ 
+Disallow: /search/ 
+Disallow: /admin/ 
+Sitemap: https://auroraonline.ru/sitemap.xml 
+
+User-agent: Yandex
+Disallow: /cart/ 
+Disallow: /checkout/ 
+Disallow: /search/ 
+Disallow: /admin/ 
+Sitemap: https://auroraonline.ru/sitemap.xml 
+
+User-agent: GoogleBot
+Disallow: /cart/ 
+Disallow: /checkout/ 
+Disallow: /search/ 
+Disallow: /admin/ 
+Sitemap: https://auroraonline.ru/sitemap.xml 

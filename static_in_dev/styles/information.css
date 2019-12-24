@@ -46,3 +46,8 @@
 .error_404{
     text-align: center;
 }
+
+.product_list{
+    display: inline-block;
+}
+

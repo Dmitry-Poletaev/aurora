@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from product.models import Category
 from django.shortcuts import render_to_response
-from django.template import RequestContext
+
 
 # Create your views here.
 def about(request):

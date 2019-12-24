@@ -12,7 +12,7 @@ def main_page(request):
     
     return render(request, 'index.html',{'categories':categories})
 
-def category_view(request, slug):
+def category_view(request,slug):
     category = Category.objects.get(slug=slug)
     products = Product.objects.filter(category=category)
     categories = Category.objects.all()
@@ -27,10 +27,12 @@ def category_view(request, slug):
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
 
+    cart_product_form = CartAddProductForm()
     context = {
     'category': category,
     'products':products,
-    'categories': categories
+    'categories': categories,
+    'cart_product_form': cart_product_form
     }
     return render(request, 'category.html', context)
 
@@ -58,9 +60,11 @@ def catalog(request):
         products = paginator.page(1)
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
-    
+
+    cart_product_form = CartAddProductForm()
     context = {
     'products':products,
-    'categories': categories
+    'categories': categories,
+    'cart_product_form': cart_product_form
     }
     return render(request, 'catalog.html', context)

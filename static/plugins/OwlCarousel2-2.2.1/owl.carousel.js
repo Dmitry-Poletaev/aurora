@@ -205,8 +205,8 @@
 		rtl: false,
 
 		smartSpeed: 250,
-		fluidSpeed: false,
-		dragEndSpeed: false,
+		fluidSpeed: true,
+		dragEndSpeed: true,
 
 		responsive: {},
 		responsiveRefreshRate: 200,
@@ -2588,10 +2588,10 @@
 	 * @public
 	 */
 	Autoplay.Defaults = {
-		autoplay: false,
+		autoplay: true,
 		autoplayTimeout: 5000,
-		autoplayHoverPause: false,
-		autoplaySpeed: false
+		autoplayHoverPause: true,
+		autoplaySpeed: true
 	};
 
 	/**
@@ -2601,7 +2601,7 @@
 	 * @param {Number} [speed] - The animation speed for the animations.
 	 */
 	Autoplay.prototype.play = function(timeout, speed) {
-		this._paused = false;
+		this._paused = true;
 
 		if (this._core.is('rotating')) {
 			return;

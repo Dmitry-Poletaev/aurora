@@ -1,0 +1,36 @@
+<html>
+    <body>
+    <h1>Заказ №{{ order.id }}</h1>
+        <p>
+            {{ order.name }}<br>
+            {{ order.email }}<br>
+            {{ order.phone }}<br>
+            {{ order.city }}<br>
+            {{ order.shipping_address }}<br>
+        </p>
+        <table>
+            <thead>
+            <tr>
+                <th>Товар</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Итоговая стоимость</th>
+            </tr>
+        </thead>
+<tbody>
+    {% for item in order.items.all %}
+        <tr class="row{% cycle '1' '2' %}">
+        <td>{{ item.product.name }}</td>
+        <td class="num">{{ item.price }}.руб</td>
+        <td class="num">{{ item.quantity }}</td>
+        <td class="num">{{ item.get_cost }}.руб</td>
+        </tr>
+    {% endfor %}
+            <tr class="total">
+            <th colspan="3">Итого</th>
+            <td class="num">{{ order.get_total_cost }}.руб</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

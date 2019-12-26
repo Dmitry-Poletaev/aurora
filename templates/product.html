@@ -10,9 +10,6 @@
 {% block content %}
 
 <!-- Single Product -->
-
-<!-- Single Product -->
-
 	<div class="single_product">
 		<div class="container">
 			<div class="row">
@@ -38,31 +35,28 @@
 						<div class="product_name">{{ product.name }}</div>
 						<div class="product_text"><p>{% autoescape off%}{{ product.description }}{% endautoescape %}</p></div>
 						<div class="order_info d-flex flex-row">
-							<form action="{% url 'cart:cart_add' product.id %}" method="post">
-							{% csrf_token %}
 								<div class="clearfix" style="z-index: 1000;">
 								</div>
 								<div class="product_price">
 								{% if product.discount_price %}
 									Цена:<small><s>{{ product.price }}</s></small>
 									<br>{{ product.get_sale }}.руб
+									<form action="{% url 'cart:cart_add' product.id %}" method="post">
+										{% csrf_token %}
+										<br>
+										<p>Количество:{{ cart_product_form }}</p>
+										<input type="submit" value="В корзину" id="update-button">
+									</form>
 									{% else %}
 									Цена: {{ product.price }}.руб
+									<form action="{% url 'cart:cart_add' product.id %}" method="post">
+										{% csrf_token %}
+										<br>
+										<p>Количество:{{ cart_product_form }}</p>
+										<input type="submit" value="В корзину" id="update-button">
+									</form>
 									{% endif %}
 								</div>
-								<div class="button_container">
-									<!--<button type="button" class="button cart_button" ><a href="{% url 'order_create' %}">
-									Купить в 1 клик</button></a>-->
-									<div class="product_fav"><i class="fas fa-heart"></i></div>
-									<div class="add_to_cart">
-									<br>
-										<form action="{% url 'cart:cart_add' product.id %}" method="post">
-										{{ cart_product_form }}
-										<input type="submit" value="Добавить в корзину">
-										</form>
-									</div>
-								</div>
-							</form>
 						</div>
 						
 					</div>

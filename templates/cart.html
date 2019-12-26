@@ -35,7 +35,7 @@
                 <form action="{% url 'cart:cart_add' product.id %}" method="post">
                   {{ item.update_quantity_form.quantity }}
                   {{ item.update_quantity_form.update }}
-                  <input type="submit" value="Update">
+                  <input type="submit" value="Добавить">
                   {% csrf_token %}
                 </form>
               </td>
@@ -54,7 +54,7 @@
     </table>
     <p class="text-right">
       <a href="{% url 'catalog' %}" class="button light" id="">Продолжить покупки</a>
-      <a href="{% url 'order_create' %}" class="button">
+      <a href="{% url 'orders:order_create' %}" class="button">
         Оформить заказ
       </a>
     </p>

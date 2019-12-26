@@ -117,16 +117,22 @@
 													{% if product.discount_price %}
 														Цена:<small><s>{{ product.price }}</s></small>
 														{{ product.get_sale }}.руб
+														<form action="{% url 'cart:cart_add' product.id %}" method="post">
+															{% csrf_token %}
+															<br>
+															<p>Количество:{{ cart_product_form }}</p>
+															<input type="submit" value="В корзину" id="update-button">
+														</form>
 													{% else %}
 														Цена: {{ product.price }}.руб
-													{% endif %}</h6>											
+														<form action="{% url 'cart:cart_add' product.id %}" method="post">
+															{% csrf_token %}
+															<br>
+															<p>Количество:{{ cart_product_form }}</p>
+															<input type="submit" value="В корзину" id="update-button">
+														</form>
+													{% endif %}</h6>																					
 												</div>
-												<br>
-												<form action="{% url 'cart:cart_add' product.id %}" method="post">
-													{% csrf_token %}
-													{{ cart_product_form }}
-													<input type="submit" value="Добавить в корзину">
-												</form>
 											</div>
 											<img src="{{ product.image.url }}" alt="Generic placeholder image" style='height: 150px' class="ml-lg-5 order-1 order-lg-2">										
 										</div> <!-- End -->

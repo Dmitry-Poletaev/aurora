@@ -151,7 +151,7 @@ CART_SESSION_ID = 'cart'
 # Настройки почтового сервера
 EMAIL_HOST = 'mail.nic.ru'
 EMAIL_HOST_USER = 'd.poletaev@vorteil-technology.ru'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = 'Dima12345'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'd.poletaev@vorteil-technology.ru'

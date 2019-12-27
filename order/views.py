@@ -18,7 +18,7 @@ def admin_order_pdf(request, order_id):
                             {'order': order})
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'filename=\
-                    "order_{}.pdf"'.format(order.id)
+                    "заказ№{}.pdf"'.format(order.id)
     weasyprint.HTML(string=html).write_pdf(response)
                         
     return response
@@ -37,8 +37,8 @@ def order_create(request):
             # clear the cart
             cart.clear()
             # Запуск асинхронной задачи.
-            #order_created(order.id)
-            admin_notification(order.id)
+            order_created(order.id)
+            #admin_notification(order.id)
             #order_created.delay(order.id)
             return render(request,
                           'thanks.html',

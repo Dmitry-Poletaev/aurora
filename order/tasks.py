@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 import weasyprint
 from io import BytesIO
+
 #@task
 def order_created(order_id):
     """
@@ -14,14 +15,21 @@ def order_created(order_id):
     """
     order = Order.objects.get(id=order_id)
     subject = f'Заказ №{order.id}.'
-    message = 'Добрый день, {},\nВаш заказ успешно оформлен.\
-                  \nНомер вашего заказа {}.'.format(order.name, order.id)
-                                            
-    mail_sent = send_mail(subject,
-                          message,
-                          'd.poletaev@vorteil-technology.ru',
-                          [order.email])
-    return mail_sent
+    message = f'Добрый день, {order.name},\nВаш заказ успешно оформлен.\
+                  \nНомер вашего заказа {order.id}.\
+                  \nИнформация во вложении.'
+    email = EmailMessage(subject,
+                        message,
+                        'd.poletaev@vorteil-technology.ru',
+                        [order.email])                                        
+     # Формирование PDF
+    html = render_to_string('order.html', {'order': order})
+    out = BytesIO()
+    weasyprint.HTML(string=html).write_pdf(out)
+    email.attach('заказ_{}.pdf'.format(order.id),
+                                out.getvalue(),
+                                'application/pdf')
+    email.send()
 
 def admin_notification(order_id):
     """
@@ -43,5 +51,6 @@ def admin_notification(order_id):
     email.attach('заказ_{}.pdf'.format(order.id),
                                 out.getvalue(),
                                 'application/pdf')
-    mail_sent = email.send()
-    return mail_sent
+
+    email.send()
+    

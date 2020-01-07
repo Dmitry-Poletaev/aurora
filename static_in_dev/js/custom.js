@@ -530,7 +530,8 @@ $(document).ready(function()
 			popularSlider.owlCarousel(
 			{
 				loop:true,
-				autoplay:false,
+				autoplay:true,
+				autoplayTimeout:3000,
 				nav:false,
 				dots:false,
 				responsive:
@@ -579,6 +580,8 @@ $(document).ready(function()
 				items:1,
 				loop:true,
 				nav:false,
+				autoplay:true,
+				autoplayTimeout:3000,
 				dots:true,
 				dotsContainer: '.banner_2_dots',
 				smartSpeed:1200

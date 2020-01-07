@@ -530,7 +530,7 @@ $(document).ready(function()
 			popularSlider.owlCarousel(
 			{
 				loop:true,
-				autoplay:false,
+				autoplay:true,
 				nav:false,
 				dots:false,
 				responsive:

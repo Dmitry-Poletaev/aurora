@@ -1,7 +1,8 @@
 {% extends "index.html" %}
 
-{% block content %}
-<div class="search_product_count"><h3>Товаров найдено: {{search_product.count }}</h3></div>
+{% block content %}	
+	{% if search_product%}
+	<div class="search_product_count"><h3>Товаров найдено: {{search_product.count }}</h3></div>
 			<div class="col-lg-4">
 					<div class="product-list-search">
 							{% for product in search_product %}
@@ -36,10 +37,14 @@
 											<img src="{{ product.image.url }}" alt="Generic placeholder image" style='height: 150px' class="ml-lg-5 order-1 order-lg-2">										
 										</div> 
 									</li> 
-								</ul>
+								</ul>	
 							{% endfor %}
 					</div>
 				</div>
-</div>
+		</div>
+		{% else %}
+		<br>
+		<h3>Товаров по вашему запросу не найдено.<br>Попробуйте повторить запрос с другой формулировкой.</h3>
+		{% endif %}
 
 {% endblock content %}

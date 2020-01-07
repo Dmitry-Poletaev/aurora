@@ -1,41 +1,45 @@
 {% extends "index.html" %}
 
 {% block content %}
-           		<div class="shop_content">
-                        <div class="shop_bar clearfix">
-						<br>
-							<div class="shop_product_count"><h3 id="search_count">Товаров найдено: {{search_product.count }}</h3></div>
-						</div>
-
-
-						<div class="product_grid">
-							<div class="product_grid_border"></div>
-							{% if search_product %}
-                                {% for product in search_product %}
-							<div class="product_item is_new">
-								<div class="product_border"></div>
-								<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{ product.get_absolute_url }}" tabindex="0"><img src="{{ product.image.url }}" alt="" style='height: 100px'></a></div>
-								<div class="product_content">
-									<div class="product_price">
-									{% if product.discount_price %}
-									Цена:<small><s>{{ product.price }}</s></small>
-									 {{ product.get_sale }}.руб
-									{% else %}
-									Цена: {{ product.price }}.руб
-									{% endif %}
-									</div>
-									<div class="product_name"><div><a href="{{ product.get_absolute_url }}" tabindex="0">{{ product.name }}</a></div></div>
-								</div>
-							</div>
-							
+<div class="search_product_count"><h3>Товаров найдено: {{search_product.count }}</h3></div>
+			<div class="col-lg-4">
+					<div class="product-list-search">
+							{% for product in search_product %}
+								<ul class="list-group shadow">
+									<li class="list-group-item">
+										<div class="media align-items-lg-center flex-column flex-lg-row p-3">
+											<div class="media-body order-2 order-lg-1">										
+												<h5 class="mt-0 font-weight-bold mb-2"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h5>
+												<p class="font-italic text-muted mb-0 small"></p>
+												<div class="d-flex align-items-center justify-content-between mt-1">
+													<h6 class="font-weight-bold my-2">
+													{% if product.discount_price %}
+														Цена:<small><s>{{ product.price }}</s></small>
+														{{ product.get_sale }}.руб
+														<form action="{% url 'cart:cart_add' product.id %}" method="post">
+															{% csrf_token %}
+															<br>
+															<p>Количество:{{ cart_product_form }}</p>
+															<input type="submit" value="В корзину" id="update-button">
+														</form>
+													{% else %}
+														Цена: {{ product.price }}.руб
+														<form action="{% url 'cart:cart_add' product.id %}" method="post">
+															{% csrf_token %}
+															<br>
+															<p>Количество:{{ cart_product_form }}</p>
+															<input type="submit" value="В корзину" id="update-button">
+														</form>
+													{% endif %}</h6>																					
+												</div>
+											</div>
+											<img src="{{ product.image.url }}" alt="Generic placeholder image" style='height: 150px' class="ml-lg-5 order-1 order-lg-2">										
+										</div> 
+									</li> 
+								</ul>
 							{% endfor %}
-                            {% else %}
-                            	<div><p> товаров по вашему запросу<br>Попробуйте повторить запрос с другой формулировкой</p></div>
-                            {% endif %}
-						
-						</div> 	
-
-
-						
+					</div>
+				</div>
+</div>
 
 {% endblock content %}

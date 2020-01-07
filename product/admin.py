@@ -13,7 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(ExportActionMixin, admin.ModelAdmin):
-    list_display = ('name', 'slug', 'price',
+    list_display = ('id','name', 'slug', 'price',
                     'available', 'created', 'updated')
     list_filter = ('available', 'created', 'updated','category')
     list_editable = ['price', 'available']

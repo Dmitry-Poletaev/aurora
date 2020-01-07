@@ -36,11 +36,11 @@
 .contact-map{
     text-align: center;
     
-
 }
 
-#search_count{
+.search_product_count{
     text-align: center;
+    margin-top: 50px;
 }
 
 .error_404{
@@ -51,3 +51,5 @@
     display: inline-block;
 }
 
+.product-list-search{
+}

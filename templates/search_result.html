@@ -3,7 +3,7 @@
 {% block content %}	
 	{% if search_product%}
 	<div class="search_product_count"><h3>Товаров найдено: {{search_product.count }}</h3></div>
-			<div class="col-lg-4">
+			<div class="col-lg-5">
 					<div class="product-list-search">
 							{% for product in search_product %}
 								<ul class="list-group shadow">
@@ -17,20 +17,8 @@
 													{% if product.discount_price %}
 														Цена:<small><s>{{ product.price }}</s></small>
 														{{ product.get_sale }}.руб
-														<form action="{% url 'cart:cart_add' product.id %}" method="post">
-															{% csrf_token %}
-															<br>
-															<p>Количество:{{ cart_product_form }}</p>
-															<input type="submit" value="В корзину" id="update-button">
-														</form>
 													{% else %}
 														Цена: {{ product.price }}.руб
-														<form action="{% url 'cart:cart_add' product.id %}" method="post">
-															{% csrf_token %}
-															<br>
-															<p>Количество:{{ cart_product_form }}</p>
-															<input type="submit" value="В корзину" id="update-button">
-														</form>
 													{% endif %}</h6>																					
 												</div>
 											</div>

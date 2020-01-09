@@ -4,11 +4,12 @@ from .models import Order, OrderItem
 from .forms import OrderForm
 from product.models import Category
 from cart.cart import Cart
-from .tasks import order_created, admin_notification
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.contrib.admin.views.decorators import staff_member_required
 import weasyprint
+from django.core.mail import EmailMessage
+from io import BytesIO
 
 
 @staff_member_required
@@ -23,6 +24,54 @@ def admin_order_pdf(request, order_id):
                         
     return response
 
+
+def order_created(order_id):
+    """
+    Отправка e-mail уведомления при успешном оформлении заказа.
+    """
+    order = Order.objects.get(id=order_id)
+    subject = f'Заказ №{order.id}.'
+    message = f'Добрый день, {order.name},\nВаш заказ успешно оформлен.\
+                  \nНомер вашего заказа {order.id}.\
+                  \nИнформация во вложении.'
+    email = EmailMessage(subject,
+                        message,
+                        'd.poletaev@vorteil-technology.ru',
+                        [order.email])                                        
+     # Формирование PDF
+    html = render_to_string('order.html', {'order': order})
+    out = BytesIO()
+    weasyprint.HTML(string=html).write_pdf(out)
+    email.attach('заказ_{}.pdf'.format(order.id),
+                                out.getvalue(),
+                                'application/pdf')
+    email.send()
+
+
+def admin_notification(order_id):
+    """
+    Отправка e-mail уведомления администратору при успешном формлении заказа заказа.
+    """
+   
+    order = Order.objects.get(id=order_id)
+    subject = f'Заказ №{order.id}.'
+    message = f'{order.name} успешно оформил заказ №{order.id}.Информация во вложении.'
+    email = EmailMessage(subject,
+                        message,
+                        'd.poletaev@vorteil-technology.ru',
+                            ['d.poletaev@vorteil-technology.ru'])
+    # Формирование PDF
+    html = render_to_string('order.html', {'order': order})
+    out = BytesIO()
+    weasyprint.HTML(string=html).write_pdf(out)
+    # Прикрепляем PDF к электронному сообщению
+    email.attach('заказ_{}.pdf'.format(order.id),
+                                out.getvalue(),
+                                'application/pdf')
+
+    email.send()
+
+
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
@@ -34,12 +83,11 @@ def order_create(request):
                                         product=item['product'],
                                         price=item['price'],
                                         quantity=item['quantity'])
-            # clear the cart
+            # Очищаем корзину
             cart.clear()
-            # Запуск асинхронной задачи.
+            # Отправка уведомлений
             order_created(order.id)
-            #admin_notification(order.id)
-            #order_created.delay(order.id)
+            admin_notification(order.id)
             return render(request,
                           'thanks.html',
                           {'order': order})

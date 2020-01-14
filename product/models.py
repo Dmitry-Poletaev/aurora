@@ -36,7 +36,7 @@ class Product(models.Model):
     slug = models.SlugField('URL',max_length=200, db_index=True)
     image = models.ImageField('Изображение',upload_to='products/%Y/%m/%d')
     description = RichTextField('Описание',blank=True)
-    price = models.DecimalField('Цена',max_digits=10, decimal_places=2)
+    price = models.DecimalField('Цена',max_digits=10, decimal_places=2,blank=True,null=True)
     discount_price = models.DecimalField('Цена со скидкой',max_digits=10, decimal_places=2, blank=True, null=True)
     sale = models.IntegerField('Скидка в процентах', blank=True, null=True,default=0)
     available = models.BooleanField('Есть в наличии',default=True)

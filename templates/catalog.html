@@ -99,13 +99,18 @@
 															<input type="submit" value="В корзину" id="update-button">
 														</form>
 													{% else %}
-														Цена: {{ product.price }}.руб
-														<form action="{% url 'cart:cart_add' product.id %}" method="post">
+														{% if product.price == None or product.price == 0 %}
+															Цена: Звоните!
+														{% else %}
+															Цена: {{ product.price }}.руб
+															<form action="{% url 'cart:cart_add' product.id %}" method="post">
 																{% csrf_token %}
 																<br>
 																<p>Количество:{{ cart_product_form }}</p>
 																<input type="submit" value="В корзину" id="update-button">
-														</form>
+															</form>
+														{% endif %}
+														
 													{% endif %}</h6>											
 												</div>
 											</div>

@@ -18,7 +18,17 @@
 														Цена:<small><s>{{ product.price }}</s></small>
 														{{ product.get_sale }}.руб
 													{% else %}
-														Цена: {{ product.price }}.руб
+														{% if product.price == None or product.price == 0 %}
+																Цена: Звоните!
+														{% else %}
+																Цена: {{ product.price }}.руб
+																<form action="{% url 'cart:cart_add' product.id %}" method="post">
+																	{% csrf_token %}
+																	<br>
+																	<p>Количество:{{ cart_product_form }}</p>
+																	<input type="submit" value="В корзину" id="update-button">
+																</form>
+														{% endif %}
 													{% endif %}</h6>																					
 												</div>
 											</div>

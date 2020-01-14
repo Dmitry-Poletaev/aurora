@@ -36,7 +36,7 @@ def order_created(order_id):
                   \nИнформация во вложении.'
     email = EmailMessage(subject,
                         message,
-                        'd.poletaev@vorteil-technology.ru',
+                        'sales@vorteil-technology.ru',
                         [order.email])                                        
      # Формирование PDF
     html = render_to_string('order.html', {'order': order})
@@ -58,8 +58,8 @@ def admin_notification(order_id):
     message = f'{order.name} успешно оформил заказ №{order.id}.Информация во вложении.'
     email = EmailMessage(subject,
                         message,
-                        'd.poletaev@vorteil-technology.ru',
-                            ['d.poletaev@vorteil-technology.ru'])
+                        'sales@vorteil-technology.ru',
+                            ['sales@vorteil-technology.ru'])
     # Формирование PDF
     html = render_to_string('order.html', {'order': order})
     out = BytesIO()

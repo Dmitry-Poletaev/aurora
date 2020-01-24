@@ -18,7 +18,7 @@ def category_view(request,slug):
     categories = Category.objects.all()
 
     # Пагинация
-    paginator = Paginator(products,20)
+    paginator = Paginator(products,1)
     page = request.GET.get('page')
     try:
         products = paginator.page(page)
@@ -52,7 +52,7 @@ def catalog(request):
     products = Product.objects.all()
 
         # Пагинация
-    paginator = Paginator(products,20)
+    paginator = Paginator(products,1)
     page = request.GET.get('page')
     try:
         products = paginator.page(page)

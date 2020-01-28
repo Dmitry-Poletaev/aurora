@@ -1,0 +1,43 @@
+@media only screen and (min-width: 975px) {
+    .mobile_cart {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 575px) {
+    .top_bar
+	{
+		display: none;
+	}
+	.banner_2
+	{
+		display: none;
+    }
+    .sidebar_section 
+	{
+        margin-left: 50px;
+        margin-bottom: 50px;
+        font-size: 14pt;
+    }
+    .main_nav_dropdown li
+	{
+		display: none;
+    }
+    .cart
+    {
+        display: none;
+    }
+    .mobile_cart
+    {
+        margin-left: 50px;
+    }
+    .footer_column 
+    {
+        font-size: 14pt;
+    }
+    .product_text
+    {
+        position: relative;
+    }
+}

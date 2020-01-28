@@ -30,40 +30,34 @@
 
 				<!-- Description -->
 				<div class="col-lg-8 order-3">
-					<div class="product_description" >
+					<!--<div class="product_description" >-->
 						<div class="product_category">{{ product.category.name }}</div>
 						<div class="product_name">{{ product.name }}</div>
 						<div class="product_text"><p>{% autoescape off%}{{ product.description }}{% endautoescape %}</p></div>
-						<div class="order_info d-flex flex-row">
-								<div class="clearfix" style="z-index: 1000;">
-								</div>
 								<div class="product_price">
-								{% if product.discount_price %}
-									Цена:<small><s>{{ product.price }}</s></small>
-									<br>{{ product.get_sale }}.руб
-									<form action="{% url 'cart:cart_add' product.id %}" method="post">
-										{% csrf_token %}
-										<br>
-										<p>Количество:{{ cart_product_form }}</p>
-										<input type="submit" value="В корзину" id="update-button">
-									</form>
-									{% else %}
-										{% if product.price == None or product.price == 0 %}
-											Цена: Звоните!
+									{% if product.discount_price %}
+										Цена:<small><s>{{ product.price }}</s></small>
+										<br>{{ product.get_sale }}.руб
+										<form action="{% url 'cart:cart_add' product.id %}" method="post">
+											{% csrf_token %}
+											<br>
+											<p>Количество:{{ cart_product_form }}</p>
+											<input type="submit" value="В корзину" id="update-button">
+										</form>
 										{% else %}
-											Цена: {{ product.price }}.руб
-											<form action="{% url 'cart:cart_add' product.id %}" method="post">
-												{% csrf_token %}
-												<br>
-												<p>Количество:{{ cart_product_form }}</p>
-												<input type="submit" value="В корзину" id="update-button">
-											</form>
+											{% if product.price == None or product.price == 0 %}
+												Цена: Звоните!
+											{% else %}
+												Цена: {{ product.price }}.руб
+												<form action="{% url 'cart:cart_add' product.id %}" method="post">
+													{% csrf_token %}
+													<br>
+													<p>Количество:{{ cart_product_form }}</p>
+													<input type="submit" value="В корзину" id="update-button">
+												</form>
+											{% endif %}
 										{% endif %}
-									{% endif %}
 								</div>
-						</div>
-						
-					</div>
 				</div>
 
 			</div>

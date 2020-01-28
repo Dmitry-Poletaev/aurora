@@ -2080,6 +2080,8 @@ select option
 {
 	width: 100%;
 }
+
+
 .banner_2_background
 {
 	position: absolute;
@@ -2108,6 +2110,7 @@ select option
 	margin: 20px;
 
 }
+
 .banner_2_image
 {
 	min-width: 100%;
@@ -2122,6 +2125,7 @@ select option
 	transform: translateY(-50%);
 	left: 0;
 }
+
 .banner_2_image img
 {
 	width: 100%;

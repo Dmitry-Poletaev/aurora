@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from cart.forms import CartAddProductForm
+from .filters import ProductFilter
 
 
 
@@ -50,9 +51,10 @@ def product_view(request, id, slug):
 def catalog(request):
     categories = Category.objects.all()
     products = Product.objects.all()
+    f = ProductFilter(request.GET, queryset=Product.objects.all())
 
         # Пагинация
-    paginator = Paginator(products,1)
+    paginator = Paginator(products,10)
     page = request.GET.get('page')
     try:
         products = paginator.page(page)
@@ -65,6 +67,7 @@ def catalog(request):
     context = {
     'products':products,
     'categories': categories,
+    'filter': f,
     'cart_product_form': cart_product_form
     }
     return render(request, 'catalog.html', context)

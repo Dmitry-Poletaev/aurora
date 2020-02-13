@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'information',
     'ckeditor',
     'captcha',
-    'import_export'
+    'import_export',
 ]
 
 SITE_ID = 5

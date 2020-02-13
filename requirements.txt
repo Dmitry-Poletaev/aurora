@@ -11,14 +11,17 @@ cssselect2==0.2.2
 defusedxml==0.6.0
 diff-match-patch==20181111
 dj-database-url==0.5.0
-Django==2.2.9
+Django==2.2.10
+django-appconf==1.0.3
 django-ckeditor==5.7.1
 django-crispy-forms==1.7.2
 django-csvimport==2.13
+django-filter==2.2.0
 django-import-export==1.2.0
 django-js-asset==1.2.2
 django-ranged-response==0.2.0
 django-simple-captcha==0.5.12
+django-ttag==3.0
 et-xmlfile==1.0.1
 flower==0.9.3
 gunicorn==19.9.0
@@ -41,6 +44,7 @@ sqlparse==0.3.0
 tablib==0.14.0
 tinycss2==1.0.2
 tornado==5.1.1
+URLObject==2.4.3
 vine==1.3.0
 WeasyPrint==51
 webencodings==0.5.1

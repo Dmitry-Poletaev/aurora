@@ -46,7 +46,7 @@ class Product(models.Model):
     description_seo =  models.CharField('Description',max_length=200,blank=True)
 
     class Meta:
-        ordering = ['price']
+        ordering = ['-price']
         index_together = (('id', 'slug'),)
         verbose_name='Товар'
         verbose_name_plural='Товары'

@@ -321,21 +321,16 @@ $(document).ready(function()
 	{
 		var sortingButtons = $('.shop_sorting_button');
 
-		$('.product_grid').isotope({
-			itemSelector: '.product_item',
+		$('.product-list').isotope({
+			itemSelector: '.list-group-item',
             getSortData: {
             	price: function(itemElement)
             	{
-            		var priceEle = $(itemElement).find('.product_price').text().replace( '$', '' );
+            		var priceEle = $(itemElement).find('data').text().replace( '.руб', '' );
             		return parseFloat(priceEle);
             	},
-            	name: '.product_name div a'
+            	name: '.product_name'
             },
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false
-            }
         });
 
         // Sort based on the value from the sorting_type dropdown
@@ -346,7 +341,7 @@ $(document).ready(function()
         		$('.sorting_text').text($(this).text());
         		var option = $(this).attr('data-isotope-option');
         		option = JSON.parse(option);
-				$('.product_grid').isotope(option);
+				$('.product-list').isotope(option);
         	});
         });
 

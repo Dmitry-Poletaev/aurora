@@ -20,6 +20,8 @@ from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 from information.sitemaps import ProductSitemap, CategorySitemap, InformationSitemap
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
 
 sitemaps = {
     'product': ProductSitemap,
@@ -40,7 +42,8 @@ urlpatterns = [
     path('', include('product.urls')),
     path('', include('search.urls')),
     path('',include('information.urls')),
-    path('captcha/',include('captcha.urls'))
+    path('captcha/',include('captcha.urls')),
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico')))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
